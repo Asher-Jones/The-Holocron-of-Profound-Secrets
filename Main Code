@@ -1,0 +1,123 @@
+import sys
+print("Welcome adventurer! You have found the Holocron of Profound Secrets. \nFor thousands of years, Jedi have stored "
+      "their greatest discoveries in my data banks so that I might share their discoveries with the worthy.")
+
+# First Loop, asking if the user is worthy until 'yes' or 'no' is entered. The main problem I am finding with this loop
+# is that it will pick up on the 'no' in 'know' or any other word that has the letters 'no' in it.
+
+while True:
+    worthy = input("Do you believe that you are worthy of my knowledge?").lower().strip()
+
+    if 'yes' in worthy:
+        print("I believe that you are worthy of my knowledge, and it has been a long time since I have gotten a "
+              "chance to speak with a worthy vessel.")
+        break
+    elif 'no' in worthy:
+        print ("Your honesty is a credit to your character and for that, I will share with you one secret. \nIn order "
+               "to make a perfect grilled cheese sandwich, you must butter and fry your bread slices before melting "
+               "the cheese between them. \nFor a truly excellent sandwich, you can also try putting slices of ham or "
+               "bacon in with your cheese.")
+        sys.exit()
+    else:
+        print("Be proud of who you are and trust in yourself and the force to know the answer. Just enter 'yes' or 'no'")
+
+# Get the users name
+name = input("What is your name adventurer?").strip()
+print("Welcome, " + name + ", to the Holocron of Profound Secrets. \nBefore I tell you my great knowledge, I must ask "
+                           "you a few questions.")
+
+# I decided to write this as a function for practice. I could have written an 'if, elis, else' statement after the input
+# loop, but I thought it would be a good opportunity to practice and I think it is easier to read
+# separated from the loop.
+
+
+def getAgeResponse(age):
+    if age < 30:
+        return "You are young and have many adventures still to come. Remember to always carry an extra pair of socks " \
+               "during your travels. Wet feet are shockingly uncomfortable."
+    elif age < 60:
+        return "You are a seasoned adventurer who must know much about the world. Try putting a pinch of salt in your " \
+               "hot chocolate to make the flavor richer."
+    else:
+        return "You must be a very wise adventurer indeed. Did you know that you can tell how fresh an egg is by " \
+               "putting it in a glass of water? \nA fresh egg will rest on the bottom of the glass, while an old egg " \
+               "will float."
+
+# Second Loop. Get the user to give their age as a number.
+
+
+ageLoop = True
+while ageLoop:
+    try:
+        age = int(input("how old are you?"))
+        break
+    except:
+        print("I'm sorry, but I need your best guess as to your age in years. Just enter a number.")
+
+    try:
+        age = int(input("How old are you?"))
+        break
+    except:
+        print("You know what I'm asking for, stop trying to break my code. ;)")
+
+print((getAgeResponse(age)))
+
+location = input("Wise " + name + ", where in the universe do you make your home? ").strip()
+print(location + " is a majestic place that many powerful force users have called their home. \nDid you know that "
+                 "there is a plant which will make subsequently eaten sour things taste sweet? \nIt is called a "
+                 "miracle fruit and is grown in West Africa.")
+
+
+def lightSaberFacts(color):
+    if color == "red":
+        return "A red lightsaber has been bled with negative emotion. \nThough it is powerful, only Sith are willing " \
+               "to submit their crystal to such a process. \nIn the new republic, these crystals are synthetic and " \
+               "made as red crystals without the need to bleed them."
+    elif color == "blue":
+        return "A blue lightsaber is traditionally the weapon of a Jedi guardian. \nThese Jedi pursue justice through " \
+               "martial might and believe that the strong must use their strength to protect the weak."
+    elif color == "green":
+        return "A green lightsaber is traditionally the weapon of a Jedi Consular or Sage. \nThese Jedi seek " \
+               "knowledge and the art of healing."
+    elif color == "purple":
+        return "A purple lightsaber is what happens when a blue lightsaber is partially bled or not fully healed. " \
+               "\nPurple is an uncommon color as most Jedi will not submit their crystals to the bleeding process and " \
+               "a Sith would not try to heal their crystal. \nMace Windu is the most famous Jedi to have a purple " \
+               "light saber."
+    elif color == "yellow":
+        return "A yellow lightsaber is traditionally the weapon of a Jedi Sentinal. \nThese Jedi are a cross between " \
+               "a Jedi Guardian and a Jedi Consular and seek to protect the week through martial might if necessary, " \
+               "but also through education and protecting knowledge."
+    elif color == "orange":
+        return "An orange lightsaber is a training saber used by padawans and younglings. \nThis color of blades do " \
+               "not have a philosophy attached to them and represent the potential of a young initiate."
+    else:
+        return color + "does not correspond to a traditional Jedi or Sith lightsaber. \nThere are many colors of " \
+                       "saber " \
+                       "that are traditional to many different subsets of force users. \nTechnically a lightsaber can " \
+                       "come in any color. \nThough the lightsaber is traditionally a force users weapon, " \
+                       "it is possible - with great difficulty - to wield one without the force. \nOne of the most " \
+                       "notable sabers that can be used without the force is the Dark Saber - a saber used " \
+                       "by Mandalorians. \nThis saber uses a gravity well to become heavier and more damaging with " \
+                       "every strike of its black blade."
+
+
+print("Legendary " + name + ", I know many things about lightsabers \nEnter a color and I will tell you what I know "
+                            "about that color of saber.")
+
+# Third Loop. I just wanted the user to be able to see all the different StarWars trivia without restarting the program.
+# I thought about prompting the user with what colors to enter, but I think it is fun to try to find them.
+
+while True:
+    color = input("What color saber would you like to learn about? Enter 'finished' to hear my greatest secret.").strip().lower()
+    if color == "finished":
+        break
+    else:
+        print((lightSaberFacts(color)))
+
+
+print ("Great " + name + ", I have decided to reveal to you my greatest secret: \nIf you ever get gum in your hair, "
+                        "fur, or other fibrous covering, you dont have to cut it out. \nWork peanut butter into the "
+                        "gum and it will wash out just fine.")
+print("It has been a pleasure to speak with you. Go, continue your adventures and share the knowledge you have "
+      "learned with all who would benefit.")
